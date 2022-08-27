@@ -19,14 +19,16 @@
                     <th scope="col">Created At</th>
                 </tr>
             </thead>
+            {% for user in users %}
             <tbody>
                 <tr>
-                    <th scope="row">{ ID }</th>
-                    <td>{ FULL_NAME }</td>
-                    <td>{ EMAIL }</td>
-                    <td>{ CREATED_AT }</td>
+                    <th scope="row">{{ user.id }}</th>
+                    <td>{{ user.first_name }} {{ user.last_name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.created_at }}</td>
                 </tr>
             </tbody>
+            {% endfor %}
         </table>
         <p><a class="link-danger m-3" href="/users/create">Create a new user...</a></p>
     </div>
