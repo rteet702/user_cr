@@ -11,25 +11,26 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1 class="m-3">Edit Users {user.id}</h1>
+                <h1 class="m-3">Edit User {{user.id}}</h1>
             </div>
             <div class="col d-flex align-items-end justify-content-end">
                 <p><a class="link-danger" href="/users">Home</a></p>
             </div>
         </div>
         <div class="row">
-            <form action="/users/add_user" method="post">
+            <form action="/users/edit_user" method="post">
+                <input type="hidden" name="id" value="{{user.id}}">
                 <div class="row m-3 p-3">
                     <label for="first_name" class="form-label mb-3 fs-2">First Name:</label>
-                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="new" first name...">
+                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="new" first name..." value="{{user.first_name}}" required>
                 </div>
                 <div class="row m-3 p-3">
                     <label for="last_name" class="form-label mb-3 fs-2">Last Name:</label>
-                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="new last name...">
+                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="new last name..." value="{{user.last_name}}" required>
                 </div>
                 <div class="row m-3 p-3">
                     <label for="email_address" class="form-label mb-3 fs-2">Email Address:</label>
-                    <input type="text" class="form-control" name="email_address" id="email_address" placeholder="new email...">
+                    <input type="text" class="form-control" name="email_address" id="email_address" placeholder="new email..." value="{{user.email}}" required>
                 </div>
                 <div class="row m-3 p-3">
                     <input type="submit" value="Edit User" class="w-25">

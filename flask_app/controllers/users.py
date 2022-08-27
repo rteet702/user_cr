@@ -27,6 +27,21 @@ def add_user():
 
     return redirect('/users')
 
+@app.route('/users/edit_user', methods=['POST'])
+def edit_user():
+    inbound = request.form
+    data = {
+        'id' : inbound['id'],
+        'first_name' : inbound['first_name'],
+        'last_name' : inbound['last_name'],
+        'email' : inbound['email_address'],
+    }
+
+    print(inbound)
+    User.update(data)
+
+    return redirect('/users')
+
 @app.route('/users/<id>')
 def r_user_info(id):
     data = {
@@ -44,3 +59,12 @@ def r_user_edit(id):
     user = User.get_one(data)
 
     return render_template('edit_user.html', user=user)
+
+@app.route('/users/<id>/delete')
+def delete(id):
+    data = {
+        'id' : id
+    }
+    User.delete(data)
+    
+    return redirect('/users')

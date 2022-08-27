@@ -9,13 +9,27 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row mb-5">
             <div class="col">
                 <h1 class="m-3">User {{ user.id }}</h1>
             </div>
             <div class="col d-flex align-items-end justify-content-end">
                 <p><a class="link-danger" href="/users">Home</a></p>
             </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-8 border border-3 border-dark">
+                <p>Full Name: {{ user.first_name }} {{ user.last_name }}</p>
+                <p>Email: {{ user.email }}</p>
+                <p>Created At: {{ user.created_at }}</p>
+                <p>Last Updated At: {{ user.updated_at }}</p>
+            </div>
+        </div>
+        <div class="row my-5">
+            <p>
+                <a href="/users/{{user.id}}/edit" class="link-danger">Edit</a> | 
+                <a href="/users/{{user.id}}/delete" class="link-danger">Delete</a>
+            </p>
         </div>
     </div>
 </body>
