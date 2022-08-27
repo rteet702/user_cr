@@ -26,8 +26,13 @@ class User:
 
         return users
 
-
     @classmethod
     def create(cls, data):
         query = "INSERT INTO users (first_name, last_name, email) VALUES (%(first_name)s, %(last_name)s, %(email)s);"
         connectToMySQL('users_cr').query_db(query, data)
+    
+    @classmethod
+    def get_one(cls, data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        user = connectToMySQL('users_cr').query_db(query, data)
+        return cls(user[0])

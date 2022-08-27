@@ -26,3 +26,21 @@ def add_user():
     User.create(data)
 
     return redirect('/users')
+
+@app.route('/users/<id>')
+def r_user_info(id):
+    data = {
+        'id' : id
+    }
+    user = User.get_one(data)
+
+    return render_template('view_user.html', user=user)
+
+@app.route('/users/<id>/edit')
+def r_user_edit(id):
+    data = {
+        'id' : id
+    }
+    user = User.get_one(data)
+
+    return render_template('edit_user.html', user=user)
