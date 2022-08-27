@@ -9,24 +9,26 @@
 </head>
 <body>
     <div class="container">
+        <h1 class="m-3">All Users</h1>
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Full Name</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Created At</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>{ FIRST_NAME }</td>
-                    <td>{ LAST_NAME }</td>
+                    <th scope="row">{ ID }</th>
+                    <td>{ FULL_NAME }</td>
                     <td>{ EMAIL }</td>
+                    <td>{ CREATED_AT }</td>
                 </tr>
             </tbody>
         </table>
+        <p><a class="link-danger m-3" href="/users/create">Create a new user...</a></p>
     </div>
 </body>
 </html>
