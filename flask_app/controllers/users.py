@@ -22,9 +22,10 @@ def add_user():
         'last_name' : inbound['last_name'],
         'email' : inbound['email_address'],
     }
+    if not User.validate_user(inbound):
+        return redirect('/users/create')
 
     User.create(data)
-
     return redirect('/users')
 
 @app.route('/users/edit_user', methods=['POST'])
